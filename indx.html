@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplos de JavaScript</title>
+    <script>
+        // Função para mostrar alerta "Hello World"
+        function helloWorld() {
+            alert("Hello World!");
+        }
+
+        // Função para mostrar alerta ao clicar no botão
+        function mostrarAlerta() {
+            alert("Você clicou no botão!");
+        }
+
+        // Função para nomear o usuário
+        function nomear() {
+            if (confirm("Posso saber qual o seu nome?")) {
+                var nome = prompt("Qual o seu nome?");
+                alert("Seja bem-vindo(a) " + nome);
+            } else {
+                alert("Você respondeu que não. Que pena! Bye bye!");
+            }
+        }
+
+        // Função para exibir a tabuada
+        function exibirTabuada() {
+            var numero = prompt("Digite um número de 1 a 10:");
+            var resultado = "<h2>Tabuada de " + numero + ":</h2><ul>";
+            
+            for (var i = 1; i <= 10; i++) {
+                resultado += "<li>" + numero + " x " + i + " = " + (numero * i) + "</li>";
+            }
+            resultado += "</ul>";
+            document.getElementById("resultadoTabuada").innerHTML = resultado;
+        }
+
+        // Função para calcular o fatorial
+        function calcularFatorial() {
+            var num = parseInt(prompt("Digite um número inteiro:"));
+            var fatorial = 1;
+
+            for (var i = 1; i <= num; i++) {
+                fatorial *= i;
+            }
+
+            document.getElementById("resultadoFatorial").innerHTML = "<h2>O fatorial de " + num + " é: " + fatorial + "</h2>";
+        }
+
+        // Função para converter km/h em m/s
+        function converter() {
+            var velocidadeKmH = parseFloat(document.getElementById("velocidade").value);
+            var velocidadeMs = velocidadeKmH / 3.6;
+            alert(velocidadeKmH + " km/h é igual a " + velocidadeMs.toFixed(2) + " m/s.");
+        }
+
+        // Função para exibir mensagem com base no ano escolar
+        function verificarAnoEscolar() {
+            var anoEscolar = document.getElementById("anoEscolar").value;
+            var mensagem;
+
+            switch (anoEscolar) {
+                case "1ºano":
+                    mensagem = "Você é novato!";
+                    break;
+                case "2ºano":
+                case "3ºano":
+                    mensagem = "Você está no caminho!";
+                    break;
+                case "4ºano":
+                    mensagem = "Você é concluinte!";
+                    break;
+                default:
+                    mensagem = "Selecione um ano escolar válido.";
+                    break;
+            }
+            alert(mensagem);
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Exemplos de JavaScript</h1>
+
+    <button onclick="helloWorld()">Alerta Hello World</button>
+    <br><br>
+
+    <button onclick="mostrarAlerta()">Clique aqui</button>
+    <br><br>
+
+    <button onclick="nomear()">Ativar perguntar</button>
+    <br><br>
+
+    <button onclick="exibirTabuada()">Mostrar Tabuada</button>
+    <div id="resultadoTabuada"></div>
+    <br><br>
+
+    <button onclick="calcularFatorial()">Calcular Fatorial</button>
+    <div id="resultadoFatorial"></div>
+    <br><br>
+
+    <h3>Conversão de Velocidade</h3>
+    Velocidade em km/h: 
+    <input type="text" id="velocidade">
+    <button type="button" onclick="converter()">Converter</button>
+    
+    <h3>Selecione seu Ano Escolar</h3>
+    <select id="anoEscolar">
+        <option value="">-- Selecione --</option>
+        <option value="1ºano">1ºano</option>
+        <option value="2ºano">2ºano</option>
+        <option value="3ºano">3ºano</option>
+        <option value="4ºano">4ºano</option>
+    </select>
+    <button onclick="verificarAnoEscolar()">Verificar Ano Escolar</button>
+
+</body>
+</html>
